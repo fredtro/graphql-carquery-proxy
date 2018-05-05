@@ -1,16 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: fred
- * Date: 05.05.18
- * Time: 11:32
- */
 
 namespace AppBundle\CarQuery;
 
-use GuzzleHttp\Client;
+use GuzzleHttp\Client as HttpClient;
 
-class ApiClient implements CarQueryApiInterface
+class Client implements CarQueryApiInterface
 {
     /**
      * @var string
@@ -27,7 +21,7 @@ class ApiClient implements CarQueryApiInterface
      */
     public function __construct()
     {
-        $this->httpClient = new Client([
+        $this->httpClient = new HttpClient([
             'base_uri' => $this->enpoint
         ]);
     }
@@ -57,6 +51,12 @@ class ApiClient implements CarQueryApiInterface
         );
 
         $body = (string)$response->getBody();
-        return \GuzzleHttp\json_decode($body, true);
+        $result = \GuzzleHttp\json_decode($body, true);
+
+        if (!count($result) || !isset($result['model_id'])) {
+            throw new \InvalidArgumentException(sprintf('Unable to find car with id %s.', $id));
+        }
+
+        return $result[0];
     }
 }
