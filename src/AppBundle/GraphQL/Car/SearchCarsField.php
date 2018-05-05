@@ -22,7 +22,7 @@ class SearchCarsField extends AbstractContainerAwareField
     public function build(FieldConfig $config)
     {
         $config
-            ->addArgument('params', new ListType(new StringType()));
+            ->addArgument('keyword', new StringType());
     }
 
     /**
@@ -35,7 +35,7 @@ class SearchCarsField extends AbstractContainerAwareField
     {
         /** @var CarResolver $resolver */
         $resolver = $this->container->get(CarResolver::class);
-        return $resolver->searchCars(isset($args['params']) ? $args['params'] : []);
+        return $resolver->searchCars(isset($args['keyword']) ? $args['keyword'] : "");
     }
 
     /**

@@ -50,12 +50,19 @@ class Client implements CarQueryApiInterface
     }
 
     /**
-     * @param array $params
+     * @param string $keyword
      * @return mixed
      */
-    public function getTrims(array $params = [])
+    public function getTrims($keyword = "")
     {
+        $params = [];
+
+        if ($keyword) {
+            $params['keyword'] = $keyword;
+        }
+
         $params = array_merge($params, ['cmd' => 'getTrims']);
+
         $result = $this->doRequest($params);
 
         if (!isset($result['Trims'])) {

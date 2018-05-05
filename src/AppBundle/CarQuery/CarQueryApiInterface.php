@@ -18,8 +18,8 @@ interface CarQueryApiInterface
     public function getModel($id);
 
     /**
-     * @param array $params
+     * @param string
      * @return mixed
      */
-    public function getTrims(array $params = []);
+    public function getTrims($keyword = "");
 }
