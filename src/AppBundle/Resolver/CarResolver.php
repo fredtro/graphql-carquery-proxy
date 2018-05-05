@@ -41,4 +41,14 @@ class CarResolver
         $car = $this->carQueryClient->getModel($id);
         return $this->modelParser->parseSingle($car);
     }
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function searchCars(array $params = [])
+    {
+        $cars = $this->carQueryClient->getTrims($params);
+        return $this->modelParser->parseList($cars);
+    }
 }

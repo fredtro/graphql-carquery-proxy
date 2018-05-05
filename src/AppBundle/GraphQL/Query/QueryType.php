@@ -3,6 +3,7 @@
 namespace AppBundle\GraphQL\Query;
 
 use AppBundle\GraphQL\Car\CarField;
+use AppBundle\GraphQL\Car\SearchCarsField;
 use Youshido\GraphQL\Config\Object\ObjectTypeConfig;
 use Youshido\GraphQL\Type\NonNullType;
 use Youshido\GraphQL\Type\Object\AbstractObjectType;
@@ -17,6 +18,7 @@ class QueryType extends AbstractObjectType
     public function build($config)
     {
         $config
-            ->addField(new CarField());
+            ->addField(new CarField())
+            ->addField(new SearchCarsField());
     }
 }

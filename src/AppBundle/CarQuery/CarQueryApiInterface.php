@@ -16,4 +16,10 @@ interface CarQueryApiInterface
      * @return mixed
      */
     public function getModel($id);
+
+    /**
+     * @param array $params
+     * @return mixed
+     */
+    public function getTrims(array $params = []);
 }

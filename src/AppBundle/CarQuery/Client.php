@@ -22,7 +22,10 @@ class Client implements CarQueryApiInterface
     public function __construct()
     {
         $this->httpClient = new HttpClient([
-            'base_uri' => $this->enpoint
+            'base_uri' => $this->enpoint,
+            'headers' => [
+                'User-Agent' => 'graphql-proxy/v0.1',
+            ]
         ]);
     }
 
@@ -36,27 +39,46 @@ class Client implements CarQueryApiInterface
             'cmd' => 'getModel',
             'model' => $id
         ];
+        $result = $this->doRequest($params);
 
-        $headers = [
-            'User-Agent' => 'private-graphql-proxy/v1.0',
-        ];
-
-        $response = $this->httpClient->request(
-            'GET',
-            '',
-            [
-                'headers' => $headers,
-                'query' => $params
-            ]
-        );
-
-        $body = (string)$response->getBody();
-        $result = \GuzzleHttp\json_decode($body, true);
-
+        //check for expected result
         if (!count($result) || !isset($result[0]['model_id'])) {
             throw new \InvalidArgumentException(sprintf('Unable to find car with id %s.', $id));
         }
 
         return $result[0];
+    }
+
+    /**
+     * @param array $params
+     * @return mixed
+     */
+    public function getTrims(array $params = [])
+    {
+        $params = array_merge($params, ['cmd' => 'getTrims']);
+        $result = $this->doRequest($params);
+
+        if (!isset($result['Trims'])) {
+            throw new \RuntimeException('Empty Result');
+        }
+
+        return $result['Trims'];
+    }
+
+    /**
+     * @param $params
+     * @return mixed
+     */
+    public function doRequest($params)
+    {
+        $response = $this->httpClient->request(
+            'GET',
+            '',
+            ['query' => $params]
+        );
+
+        $body = (string)$response->getBody();
+        $result = \GuzzleHttp\json_decode($body, true);
+        return $result;
     }
 }
