@@ -12,6 +12,7 @@ use Youshido\GraphQL\Config\Object\ObjectTypeConfig;
 use Youshido\GraphQL\Type\NonNullType;
 use Youshido\GraphQL\Type\Object\AbstractObjectType;
 use Youshido\GraphQL\Type\Scalar\IdType;
+use Youshido\GraphQL\Type\Scalar\IntType;
 use Youshido\GraphQL\Type\Scalar\StringType;
 
 class CarType extends AbstractObjectType
@@ -26,7 +27,9 @@ class CarType extends AbstractObjectType
             'id' => new NonNullType(new IdType()),
             'name' => new StringType(),
             'make' => new StringType(),
-            'trim' => new StringType()
+            'trim' => new StringType(),
+            'power' => new IntType(),
+            'topSpeed' => new IntType()
         ]);
     }
 }

@@ -53,7 +53,7 @@ class Client implements CarQueryApiInterface
         $body = (string)$response->getBody();
         $result = \GuzzleHttp\json_decode($body, true);
 
-        if (!count($result) || !isset($result['model_id'])) {
+        if (!count($result) || !isset($result[0]['model_id'])) {
             throw new \InvalidArgumentException(sprintf('Unable to find car with id %s.', $id));
         }
 

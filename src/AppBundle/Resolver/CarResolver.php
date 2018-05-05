@@ -3,6 +3,7 @@
 namespace AppBundle\Resolver;
 
 use AppBundle\CarQuery\CarQueryApiInterface;
+use AppBundle\CarQuery\Parser\ModelParserInterface;
 
 /**
  * Class CarResolver
@@ -15,14 +16,20 @@ class CarResolver
      * @var CarQueryApiInterface
      */
     protected $carQueryClient;
+    /**
+     * @var ModelParserInterface
+     */
+    private $modelParser;
 
     /**
      * CarResolver constructor.
      * @param CarQueryApiInterface $carQueryClient
+     * @param ModelParserInterface $modelParser
      */
-    public function __construct(CarQueryApiInterface $carQueryClient)
+    public function __construct(CarQueryApiInterface $carQueryClient, ModelParserInterface $modelParser)
     {
         $this->carQueryClient = $carQueryClient;
+        $this->modelParser = $modelParser;
     }
 
     /**
@@ -32,11 +39,6 @@ class CarResolver
     public function findCar($id)
     {
         $car = $this->carQueryClient->getModel($id);
-
-        return [
-            'id' => $car['model_id'],
-            'make' => $car['make_display'],
-            'name' => $car['model_name']
-        ];
+        return $this->modelParser->parseSingle($car);
     }
 }
