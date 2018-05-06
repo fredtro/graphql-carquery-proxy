@@ -74,7 +74,7 @@ Example:
 ```
 {
   searchCars(keyword: "Beetle", make: "volkswagen") {
- 		id
+    id
     name
   }
 }
