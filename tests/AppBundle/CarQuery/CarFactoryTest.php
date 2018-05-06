@@ -2,9 +2,9 @@
 
 
 namespace Tests\AppBundle\CarQuery;
+
 use AppBundle\CarQuery\Factory\CarFactory;
 use PHPUnit\Framework\TestCase;
-
 
 class CarFactoryTest extends TestCase
 {

@@ -49,7 +49,8 @@ class ClientTest extends TestCase
     /**
      * @expectedException InvalidArgumentException
      */
-    public function testGetTrimsThrowsException(){
+    public function testGetTrimsThrowsException()
+    {
         $responseData = "";
         $cqClient = $this->getMockedClient($responseData);
         $cqClient->getTrims();
@@ -77,5 +78,4 @@ class ClientTest extends TestCase
 
         return $cqClient;
     }
-
 }

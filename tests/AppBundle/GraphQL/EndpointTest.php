@@ -3,7 +3,6 @@
 
 namespace Tests\AppBundle\GraphQL;
 
-
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class EndpointTest extends WebTestCase
