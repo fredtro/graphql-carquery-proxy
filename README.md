@@ -94,7 +94,7 @@ Example:
 ```
 {
   car(id: 57613) {
- 		id
+    id
     name
     make
   }
