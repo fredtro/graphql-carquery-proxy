@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Resolver;
+namespace AppBundle\GraphQL\Resolver;
 
 use AppBundle\CarQuery\CarQueryApiInterface;
 use AppBundle\CarQuery\Parser\ModelParserInterface;
