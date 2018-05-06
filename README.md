@@ -36,7 +36,7 @@ http://127.0.0.1:8000/graphql
 Car Type
 --------
 
-```json
+```
 type Car {
     id
     name
@@ -91,7 +91,7 @@ car(id: Int!): Car
 
 Example:
 
-````json
+```
 {
   car(id: 57613) {
  		id
@@ -99,4 +99,4 @@ Example:
     make
   }
 }
-````
+```
