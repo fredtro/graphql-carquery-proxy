@@ -17,7 +17,7 @@ class Client implements CarQueryApiInterface
     private $enpoint = 'https://www.carqueryapi.com/api/0.3/?callback=?';
 
     /**
-     * @var Client
+     * @var HttpClient
      */
     private $httpClient;
 
@@ -26,12 +26,30 @@ class Client implements CarQueryApiInterface
      */
     public function __construct()
     {
-        $this->httpClient = new HttpClient([
+        $client = new HttpClient([
             'base_uri' => $this->enpoint,
             'headers' => [
                 'User-Agent' => 'graphql-proxy/v0.1',
             ]
         ]);
+
+        $this->setHttpClient($client);
+    }
+
+    /**
+     * @return HttpClient
+     */
+    public function getHttpClient()
+    {
+        return $this->httpClient;
+    }
+
+    /**
+     * @param HttpClient $httpClient
+     */
+    public function setHttpClient($httpClient)
+    {
+        $this->httpClient = $httpClient;
     }
 
     /**
