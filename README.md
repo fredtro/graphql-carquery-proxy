@@ -1,7 +1,7 @@
 Graphql CarQuery Proxy
 =========================
 
-GraphQL proxy app for querying [CarQuery](http://www.carqueryapi.com/documentation/) api, using Symfony 3.4. 
+GraphQL proxy server for querying [CarQuery](http://www.carqueryapi.com/documentation/) api, using Symfony 3.4. 
 
 Installation
 ------------
@@ -99,4 +99,11 @@ Example:
     make
   }
 }
+```
+
+Running Tests
+-------------
+Execute from application root directory.
+```
+vendor/bin/simple-phpunit -c ./
 ```
