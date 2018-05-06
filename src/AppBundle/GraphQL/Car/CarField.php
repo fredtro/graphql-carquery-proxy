@@ -3,7 +3,7 @@
 namespace AppBundle\GraphQL\Car;
 
 use AppBundle\GraphQL\Type\CarType;
-use AppBundle\Resolver\CarResolver;
+use AppBundle\GraphQL\Resolver\CarResolver;
 use Youshido\GraphQL\Config\Field\FieldConfig;
 use Youshido\GraphQL\Execution\ResolveInfo;
 use Youshido\GraphQL\Type\AbstractType;
