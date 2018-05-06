@@ -3,6 +3,11 @@
 
 namespace AppBundle\CarQuery\Factory;
 
+/**
+ * Class CarFactory
+ *
+ * Creates car data from CarQuery api response array
+ */
 class CarFactory
 {
     /**

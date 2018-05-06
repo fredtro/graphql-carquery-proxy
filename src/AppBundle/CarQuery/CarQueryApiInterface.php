@@ -8,7 +8,6 @@
 
 namespace AppBundle\CarQuery;
 
-
 interface CarQueryApiInterface
 {
     /**

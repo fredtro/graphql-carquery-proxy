@@ -5,10 +5,12 @@ namespace AppBundle\GraphQL\Query;
 use AppBundle\GraphQL\Car\CarField;
 use AppBundle\GraphQL\Car\SearchCarsField;
 use Youshido\GraphQL\Config\Object\ObjectTypeConfig;
-use Youshido\GraphQL\Type\NonNullType;
 use Youshido\GraphQL\Type\Object\AbstractObjectType;
-use Youshido\GraphQL\Type\Scalar\IntType;
 
+/**
+ * Class QueryType
+ * Represent Query Type (Root Type)
+ */
 class QueryType extends AbstractObjectType
 {
 

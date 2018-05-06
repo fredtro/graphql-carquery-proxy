@@ -3,7 +3,6 @@
 
 namespace AppBundle\GraphQL\Car;
 
-
 use AppBundle\GraphQL\Resolver\CarResolver;
 use Youshido\GraphQL\Config\Field\FieldConfig;
 use Youshido\GraphQL\Execution\ResolveInfo;
@@ -15,6 +14,10 @@ use Youshido\GraphQL\Type\Scalar\IntType;
 use Youshido\GraphQL\Type\Scalar\StringType;
 use Youshido\GraphQLBundle\Field\AbstractContainerAwareField;
 
+/**
+ * Class SearchCarsField
+ * Defines searchCars query
+ */
 class SearchCarsField extends AbstractContainerAwareField
 {
     /**
@@ -59,6 +62,4 @@ class SearchCarsField extends AbstractContainerAwareField
     {
         return 'searchCars';
     }
-
-
 }

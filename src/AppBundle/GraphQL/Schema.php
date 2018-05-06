@@ -6,10 +6,13 @@
 namespace AppBundle\GraphQL;
 
 use AppBundle\GraphQL\Query\QueryType;
-use Youshido\GraphQL\Schema\AbstractSchema;
 use Youshido\GraphQL\Config\Schema\SchemaConfig;
-use Youshido\GraphQL\Type\Scalar\StringType;
+use Youshido\GraphQL\Schema\AbstractSchema;
 
+/**
+ * Class Schema
+ * Object representing graphql root schema
+ */
 class Schema extends AbstractSchema
 {
     public function build(SchemaConfig $config)
@@ -17,6 +20,4 @@ class Schema extends AbstractSchema
         $config
             ->setQuery(new QueryType());
     }
-
 }
-

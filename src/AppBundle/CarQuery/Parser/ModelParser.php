@@ -3,9 +3,12 @@
 
 namespace AppBundle\CarQuery\Parser;
 
-
 use AppBundle\CarQuery\Factory\CarFactory;
 
+/**
+ * Class ModelParser
+ * Delegating response data to factory.
+ */
 class ModelParser implements ModelParserInterface
 {
     /**

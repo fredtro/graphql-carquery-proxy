@@ -4,6 +4,11 @@ namespace AppBundle\CarQuery;
 
 use GuzzleHttp\Client as HttpClient;
 
+/**
+ * Class Client
+ *
+ * Simple client to fetch data from CarQuery api
+ */
 class Client implements CarQueryApiInterface
 {
     /**

@@ -12,6 +12,10 @@ use Youshido\GraphQL\Type\Object\AbstractObjectType;
 use Youshido\GraphQL\Type\Scalar\IntType;
 use Youshido\GraphQLBundle\Field\AbstractContainerAwareField;
 
+/**
+ * Class CarField
+ * Defines single car query
+ */
 class CarField extends AbstractContainerAwareField
 {
     /**
