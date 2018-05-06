@@ -4,6 +4,8 @@
 namespace AppBundle\CarQuery\Parser;
 
 
+use AppBundle\CarQuery\Factory\CarFactory;
+
 class ModelParser implements ModelParserInterface
 {
     /**
@@ -12,13 +14,7 @@ class ModelParser implements ModelParserInterface
      */
     public function parseList($data)
     {
-        $models = [];
-
-        foreach ($data as $modelResponse) {
-            $models[] = $this->parseSingle($modelResponse);
-        }
-
-        return $models;
+        return array_map([$this, 'parseSingle'], $data);
     }
 
     /**
@@ -27,12 +23,6 @@ class ModelParser implements ModelParserInterface
      */
     public function parseSingle($data)
     {
-        return [
-            'id' => $data['model_id'],
-            'name' => $data['model_name'],
-            'make' => $data['make_display'],
-            'power' => (int) $data['model_engine_power_ps'],
-            'topSpeed' => (int )$data['model_top_speed_kph']
-        ];
+        return CarFactory::create($data);
     }
 }
