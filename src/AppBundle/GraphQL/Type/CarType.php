@@ -29,7 +29,11 @@ class CarType extends AbstractObjectType
             'make' => new StringType(),
             'trim' => new StringType(),
             'power' => new IntType(),
-            'topSpeed' => new IntType()
+            'topSpeed' => new IntType(),
+            'fuelType' => new StringType(),
+            'length' => new IntType(),
+            'width' => new IntType(),
+            'height' => new IntType()
         ]);
     }
 }
