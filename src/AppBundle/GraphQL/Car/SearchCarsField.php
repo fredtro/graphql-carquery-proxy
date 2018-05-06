@@ -11,6 +11,7 @@ use Youshido\GraphQL\Type\AbstractType;
 use Youshido\GraphQL\Type\ListType\ListType;
 use AppBundle\GraphQL\Type\CarType;
 use Youshido\GraphQL\Type\Object\AbstractObjectType;
+use Youshido\GraphQL\Type\Scalar\IntType;
 use Youshido\GraphQL\Type\Scalar\StringType;
 use Youshido\GraphQLBundle\Field\AbstractContainerAwareField;
 
@@ -22,7 +23,12 @@ class SearchCarsField extends AbstractContainerAwareField
     public function build(FieldConfig $config)
     {
         $config
-            ->addArgument('keyword', new StringType());
+            ->addArgument('keyword', new StringType())
+            ->addArgument('make', new StringType())
+            ->addArgument('model', new StringType())
+            ->addArgument('fuel_type', new StringType())
+            ->addArgument('min_power', new IntType())
+            ->addArgument('drive', new StringType());
     }
 
     /**
@@ -35,7 +41,7 @@ class SearchCarsField extends AbstractContainerAwareField
     {
         /** @var CarResolver $resolver */
         $resolver = $this->container->get(CarResolver::class);
-        return $resolver->searchCars(isset($args['keyword']) ? $args['keyword'] : "");
+        return $resolver->searchCars($args);
     }
 
     /**

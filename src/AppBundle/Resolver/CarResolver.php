@@ -43,12 +43,12 @@ class CarResolver
     }
 
     /**
-     * @param string $keyword
+     * @param $parameter
      * @return array
      */
-    public function searchCars($keyword = "")
+    public function searchCars(array $parameter = [])
     {
-        $cars = $this->carQueryClient->getTrims($keyword);
+        $cars = $this->carQueryClient->getTrims($parameter);
         return $this->modelParser->parseList($cars);
     }
 }
