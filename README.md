@@ -101,6 +101,13 @@ Example:
 }
 ```
 
+Example Query
+-------------
+With default configuration just use Browser and request:
+```
+http://localhost:8000/app_dev.php/graphql?query={car(id:57613){id name make}}
+```
+
 Running Tests
 -------------
 Execute from application root directory.
